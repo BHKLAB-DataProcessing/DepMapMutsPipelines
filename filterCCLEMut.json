@@ -1,0 +1,33 @@
+{
+  "pipeline": {
+    "name": "filterCCLEMut"
+  },
+  "transform": {
+    "image": "bhklab/pharmacogx2.0:v2",
+    "cmd": [
+      "Rscript", 
+      "/pfs/filterDepMapMuts_CCLE/filterMutsCCLE.R"]
+    },
+  
+  "resource_requests": {
+    "memory": "100M"
+  },
+  "input": {
+    "cross": [
+      {
+        "git": {
+          "url": "https://github.com/BHKLAB-Pachyderm/filterDepMapMuts_CCLE.git",
+          "name": "",
+          "branch": "main"
+        }
+      },
+      {
+        "pfs": {
+          "repo": "DepMapMutations",
+          "glob": "/",
+          "name": "input"
+        }
+      }
+    ]
+  }
+}
