@@ -1,0 +1,26 @@
+{
+  "pipeline": {
+    "name": "DepMapMutations"
+  },
+  "transform": {
+    "image": "bhklab/pharmacogx2.0:v1",
+    "cmd": [
+      "Rscript", 
+      "/pfs/downloadDepMapMuts/download.R"]
+    },
+  
+  "resource_requests": {
+    "memory": "50M"
+  },
+  "input": {
+    "cross": [
+      {
+        "git": {
+          "url": "https://github.com/BHKLAB-Pachyderm/downloadDepMapMuts.git",
+          "name": "",
+          "branch": "main"
+        }
+      }
+    ]
+  }
+}
